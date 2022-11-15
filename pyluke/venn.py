@@ -53,8 +53,9 @@ class VennIntersection4:
     self.ad = a & d - c - b
     self.bc = b & c - a - d
     self.abc = a & b & c - d
-    self.bcd = b & c & d - a
+    self.abd = a & b & d - c
     self.acd = a & c & d - b
+    self.bcd = b & c & d - a
 
 # in: a, b, c, d : set
 class VennDistribution4(VennDistribution):
