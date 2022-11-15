@@ -21,7 +21,7 @@ class VennDistribution3:
   def __init__(self, a, b, c):
     self.sets = VennSet3(a, b, c)
     self.intersections = VennIntersection3(a, b, c)
-    self.unions = a & b & c
+    self.union = a & b & c
 
 # in: a, b, c, d : set
 class VennSet4:
