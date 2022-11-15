@@ -2,38 +2,51 @@
 # def distribute(*sets):
 #   pass
 
-def distribute(a, b, c, d):
-  a = set(a)
-  b = set(b)
-  c = set(c)
-  d = set(d)
-  return {
-    "a": list(a - b - c - d),
-    "b": list(b - a - c - d),
-    "c": list(c - a - b - d),
-    "d": list(d - a - b - c),
-    "ab": list(a & b - c - d),
-    "ac": list(a & c - b - d),
-    "ad": list(a & d - b - c),
-    "bc": list(b & c - a - d),
-    "bd": list(b & d - a - c),
-    "cd": list(c & d - a - b),
-    "abc": list(a & b & c - d),
-    "abd": list(a & b & d - c),
-    "bcd": list(b & c & d - a),
-    "abcd": list(a & b & c & d)
-  }
+# in: a, b, c : set
+class VennSet3:
+  def __init__(self, a, b, c):
+    self.a = a - b - c
+    self.b = b - c - a
+    self.c = c - a - b
 
-def distribute(a, b, c):
-  a = set(a)
-  b = set(b)
-  c = set(c)
-  return {
-    "a": list(a - b - c),
-    "b": list(b - a - c),
-    "c": list(c - a - b),
-    "ab": list(a & b - c),
-    "ac": list(a & c - b),
-    "bc": list(b & c - a),
-    "abc": list(a & b & c)
-  }
+# in: a, b, c : set
+class VennIntersection3:
+  def __init__(self, a, b, c):
+    self.ab = a & b - c
+    self.bc = b & c - a
+    self.ac = a & c - b
+
+# in: a, b, c : set
+class VennDistribution3:
+  def __init__(self, a, b, c):
+    self.set = VennSet3(a, b, c)
+    self.intersection = VennIntersection3(a, b, c)
+    self.union = a & b & c
+
+# in: a, b, c, d : set
+class VennSet4:
+  def __init__(self, a, b, c, d):
+    self.a = a - b - c - d
+    self.b = b - c - d - a
+    self.c = c - d - a - b
+    self.d = d - a - b - c
+
+# in: a, b, c, d : set
+class VennIntersection4:
+  def __init__(self, a, b, c, d):
+    self.ab = a & b - c - d
+    self.cd = c & d - a - b
+    self.ac = a & c - b - d
+    self.bd = b & d - a - c
+    self.ad = a & d - c - b
+    self.bc = b & c - a - d
+    self.abc = a & b & c - d
+    self.bcd = b & c & d - a
+    self.acd = a & c & d - b
+
+# in: a, b, c, d : set
+class VennDistribution4:
+  def __init__(self, a, b, c, d):
+    self.set = VennSet4(a, b, c, d)
+    self.intersection = VennIntersection4(a, b, c, d)
+    self.union = a & b & c & d
