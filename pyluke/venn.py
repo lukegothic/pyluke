@@ -2,6 +2,18 @@
 # def distribute(*sets):
 #   pass
 
+class VennSet:
+  pass
+
+class VennIntersection:
+  pass
+
+class VennDistribution:
+  def __init__(self):
+    self.sets = VennSet()
+    self.intersections = VennIntersection()
+    self.union = {}
+
 # in: a, b, c : set
 class VennSet3:
   def __init__(self, a, b, c):
@@ -17,7 +29,7 @@ class VennIntersection3:
     self.ac = a & c - b
 
 # in: a, b, c : set
-class VennDistribution3:
+class VennDistribution3(VennDistribution):
   def __init__(self, a, b, c):
     self.sets = VennSet3(a, b, c)
     self.intersections = VennIntersection3(a, b, c)
@@ -45,7 +57,7 @@ class VennIntersection4:
     self.acd = a & c & d - b
 
 # in: a, b, c, d : set
-class VennDistribution4:
+class VennDistribution4(VennDistribution):
   def __init__(self, a, b, c, d):
     self.sets = VennSet4(a, b, c, d)
     self.intersections = VennIntersection4(a, b, c, d)
