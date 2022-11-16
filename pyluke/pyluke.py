@@ -1,3 +1,3 @@
 """Main module."""
 def test():
-  print("hola desde pyluke/test")
+  return "hola desde pyluke/test"

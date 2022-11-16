@@ -14,6 +14,19 @@ class VennDistribution:
     self.intersections = VennIntersection()
     self.union = {}
 
+# in: a, b : set
+class VennSet2:
+  def __init__(self, a, b):
+    self.a = a - b
+    self.b = b - a
+
+# in: a, b : set
+class VennDistribution2(VennDistribution):
+  def __init__(self, a, b):
+    self.sets = VennSet2(a, b)
+    # self.intersections no hay, solo hay una y es la union
+    self.union = a & b
+
 # in: a, b, c : set
 class VennSet3:
   def __init__(self, a, b, c):
